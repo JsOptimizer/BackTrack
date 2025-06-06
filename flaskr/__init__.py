@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from . import db
 
 load_dotenv()
 
@@ -24,6 +25,6 @@ def create_app(test_config=None):
     @app.route("/")
     def hello():
         return "Hello world"
-    from . import db
+  
     db.init_app(app)
     return app
