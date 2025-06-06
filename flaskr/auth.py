@@ -33,3 +33,20 @@ def register():
         flash(error)
     return render_template('auth/register.html')
 
+@app.route('register/login',methods=["GET","POST"])
+def login():
+    if request.method =='POST':
+        username=request.form['username']
+        password=request.form['password']
+        db=get_db()
+        error=None
+        user=db.execute("SELECT * FROM user WHERE username =?",(username,)).fetchall()
+        if user is None or not check_password_hash(user["password"],password=password):
+            error='Incorrect password or username'
+            pass
+        if error is None:
+            session.clear()
+            session['user_id']=user['id']
+            return redirect(url_for('index'))
+        flash(error)
+    return render_template('/auth.login.html')
