@@ -3,6 +3,7 @@
     "appcontext",
     "AUTOINCREMENT",
     "DECLTYPES",
-    "executescript"
+    "executescript",
+    "flaskr"
   ]
 }
