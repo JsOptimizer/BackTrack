@@ -4,6 +4,7 @@
     "AUTOINCREMENT",
     "DECLTYPES",
     "executescript",
-    "flaskr"
+    "flaskr",
+    "pyfile"
   ]
 }
